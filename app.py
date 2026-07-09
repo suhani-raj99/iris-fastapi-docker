@@ -5,7 +5,14 @@ import joblib
 
 # Create FastAPI app
 app = FastAPI()
-
+ 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],   # Testing ke liye
+    allow_credentials=False,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 # Load trained model
 model = joblib.load("model.pkl")
 
